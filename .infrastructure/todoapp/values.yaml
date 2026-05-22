@@ -31,10 +31,12 @@ env:
   - name: DB_HOST
     value: "mysql.mysql.svc.cluster.local"
 
+# Step 7: ServiceMonitor configuration for Prometheus integration
+# This configuration enables Prometheus to scrape metrics from the /metrics endpoint
 serviceMonitor:
-  enabled: true
+  enabled: true  # Enable ServiceMonitor creation
   labels:
-    release: kube-prometheus-stack
-  interval: 10s
-  path: /metrics
-  port: http
+    release: kube-prometheus-stack  # Label required for kube-prometheus-stack to discover this ServiceMonitor
+  interval: 10s  # Scrape metrics every 10 seconds
+  path: /metrics  # Path where metrics are exposed (created in Step 2)
+  port: http  # Port name to scrape (matches service.name)
