@@ -23,7 +23,7 @@ env:
   - name: SECRET_KEY
     value: "your-secret-key-here"
   - name: DB_NAME
-    value: "tododb"
+    value: "app_db"
   - name: DB_USER
     value: "app_user"
   - name: DB_PASSWORD
