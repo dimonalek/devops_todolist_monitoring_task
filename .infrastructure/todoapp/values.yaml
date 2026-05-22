@@ -1,0 +1,40 @@
+replicaCount: 1
+
+image:
+  repository: todoapp
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+  name: http
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+env:
+  - name: SECRET_KEY
+    value: "your-secret-key-here"
+  - name: DB_NAME
+    value: "tododb"
+  - name: DB_USER
+    value: "todouser"
+  - name: DB_PASSWORD
+    value: "todopassword"
+  - name: DB_HOST
+    value: "mysql-service"
+
+serviceMonitor:
+  enabled: true
+  labels:
+    release: kube-prometheus-stack
+  interval: 10s
+  path: /metrics
+  port: http
