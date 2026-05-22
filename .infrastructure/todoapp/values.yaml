@@ -25,9 +25,9 @@ env:
   - name: DB_NAME
     value: "tododb"
   - name: DB_USER
-    value: "todouser"
+    value: "app_user"
   - name: DB_PASSWORD
-    value: "todopassword"
+    value: "1234"
   - name: DB_HOST
     value: "mysql.mysql.svc.cluster.local"
 
