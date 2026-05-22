@@ -29,7 +29,7 @@ env:
   - name: DB_PASSWORD
     value: "todopassword"
   - name: DB_HOST
-    value: "mysql-service"
+    value: "mysql.mysql.svc.cluster.local"
 
 serviceMonitor:
   enabled: true
